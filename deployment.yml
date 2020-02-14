@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: vprofile
-        image: padhudockerpractice/vprofile-v1
+        image:  padhudockerpractice/vprofile:latest
         ports:
         - containerPort: 8080
 
