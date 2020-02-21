@@ -29,7 +29,7 @@ stages{
     stage('Docker Hub'){
 	steps{
         withCredentials([string(credentialsId: 'Docker', variable: 'Docker')]) {
-        'docker login -u padhudockerpractice -p${Docker}'
+        sh "docker login -u padhudockerpractice -p${Docker}"
     }
         sh "docker push padhudockerpractice/today"
 		}
