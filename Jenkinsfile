@@ -1,5 +1,4 @@
 pipeline{
-	def buildnumber=BUILD_NUMBER
 	agent  any
 stages{
     stage('GIT'){
@@ -24,7 +23,7 @@ stages{
 	}
     stage('Docker Image'){
 	steps{
-        sh "docker build -t padhudockerpractice/today:${buildnumber} ."
+        sh "docker build -t padhudockerpractice/today ."
 		}
 	}
     stage('Docker Hub'){
@@ -32,7 +31,7 @@ stages{
         withCredentials([string(credentialsId: 'Docker', variable: 'Docker')]) {
         'docker login -u padhudockerpractice -p${Docker}'
     }
-        sh "docker push padhudockerpractice/today:${buildnumber}"
+        sh "docker push padhudockerpractice/today"
 		}
 	}
     stage('Ansible With k8s'){
