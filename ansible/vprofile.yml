@@ -4,7 +4,7 @@
   gather_facts: False
   tasks:
 
-  - name: Install EPEL-releasee
+  - name: Install EPEL-releaseee
     yum: name=epel-release state=present
 
 
